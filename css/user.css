@@ -1,0 +1,70 @@
+table {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 60%;
+  font-family: "Poppins";
+  border-collapse: collapse;
+  border: #050404 4px solid;
+}
+td,
+th {
+  border: none;
+}
+th {
+  background-color: #305430;
+  padding: 10px;
+  color: white;
+  font-weight: normal;
+}
+.font {
+  font-family: "Poppins";
+  font-weight: normal;
+  color: #050404;
+}
+.dashboard {
+  text-align: center;
+  font-weight: bold;
+}
+.dashhr {
+  border: 1px solid;
+  width: 95%;
+  margin: auto;
+}
+.backpos1 {
+  margin-left: 1300px;
+  margin-top: 10px;
+}
+.add {
+  text-align: center;
+}
+.button {
+  padding-top: 0.001px;
+  padding-bottom: 0.001px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #519d50;
+  color: #ffffff;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-family: "Poppins";
+  font-size: 17px;
+  text-align: center;
+}
+.button1 {
+  padding-top: 0.001px;
+  padding-bottom: 0.001px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: #519d50;
+  color: #ffffff;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-family: "Poppins";
+  font-size: 17px;
+  text-align: center;
+}

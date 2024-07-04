@@ -1,0 +1,21 @@
+.back {
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 35px;
+  padding-right: 35px;
+  background-color: #305430;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: "Poppins";
+  font-size: 17px;
+  text-align: center;
+}
+.backpos {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 10px; /* Optional: Add margin for some spacing from the bottom */
+  margin-right: 5px;
+}

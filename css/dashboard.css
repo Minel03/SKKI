@@ -1,0 +1,14 @@
+.font {
+  font-family: "Poppins";
+  font-weight: normal;
+  color: #050404;
+}
+.dashboard {
+  text-align: center;
+  font-weight: bold;
+}
+.dashhr {
+  border: 1px solid;
+  width: 95%;
+  margin: auto;
+}

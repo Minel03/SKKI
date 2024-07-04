@@ -1,0 +1,75 @@
+.input-container {
+  font-family: "Poppins";
+  margin-top: -20px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+  width: 500px; /* Set your desired width */
+  color: #305430;
+}
+.input {
+  font-family: "Poppins";
+  border: 3px solid #305430;
+  border-radius: 15px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+  width: 800px; /* Set your desired width */
+  color: #305430;
+  font-weight: bold;
+}
+.submit {
+  margin-top: 10px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 35px;
+  padding-right: 35px;
+  background-color: #305430;
+  color: #ffffff;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-family: "Poppins";
+  font-size: 17px;
+}
+.font {
+  font-family: "Poppins";
+  font-weight: normal;
+  color: #050404;
+}
+.dashboard {
+  text-align: center;
+  font-weight: bold;
+}
+.dashhr {
+  border: 1px solid;
+  width: 95%;
+  margin: auto;
+}
+.edit {
+  text-align: center;
+}
+.submit-container {
+  text-align: center;
+  margin-left: 250px;
+}
+.backpos5 {
+  position: absolute;
+  top: 95%;
+  left: 90%;
+}
+.form-container2 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  margin-left: -300px;
+}
+.submit-container2 {
+  text-align: center;
+  margin-left: 300px;
+}
+.backpos6 {
+  position: absolute;
+  top: 95%;
+  left: 90%;
+}

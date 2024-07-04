@@ -1,0 +1,20 @@
+table {
+  top: 10%;
+  margin-right: auto;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 60%;
+  font-family: "Poppins";
+  border-collapse: collapse;
+  border: #050404 4px solid;
+}
+td,
+th {
+  border: none;
+}
+th {
+  background-color: #305430;
+  padding: 10px;
+  color: white;
+  font-weight: normal;
+}

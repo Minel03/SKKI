@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+header a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 10px;
+}
+.hr1,
+.hr2 {
+  box-sizing: border-box;
+  border: 12px solid #305430;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.hr2 {
+  margin-top: 17px;
+}
+.logo {
+  margin-left: 20px;
+  height: 70px;
+  margin-top: 5px;
+}
+.fonttitle {
+  font-family: "Poppins";
+  font-weight: normal;
+  color: #050404;
+  font-size: 13px;
+}
+.title h1 {
+  font-family: "Poppins";
+  font-size: 30px;
+  margin-left: 110px;
+  margin-top: -60px;
+  margin-bottom: 0%;
+  letter-spacing: 3px;
+  font-weight: normal;
+}
+.menupos {
+  display: flex;
+  margin-top: -55px;
+  margin-bottom: 0%;
+  margin-left: 370px;
+}
+.menu {
+  margin-right: 25px;
+  font-family: "Poppins";
+  font-weight: lighter;
+  color: #050404;
+}
+.menu1 {
+  margin-right: 25px;
+  margin-top: -7px;
+  font-family: "Poppins";
+  font-weight: lighter;
+  color: #050404;
+}
+/* Media query for screens with a maximum width of 665px */
+@media screen and (max-width: 1215px) {
+  .menupos {
+    flex-direction: column;
+    margin-top: 0; /* Adjust margin for smaller screens if needed */
+    margin-left: 0; /* Adjust margin for smaller screens if needed */
+  }
+
+  .menu {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+}
+@media screen and (max-width: 666px) {
+  .menupos {
+    flex-direction: column;
+    margin-top: 0; /* Adjust margin for smaller screens if needed */
+    margin-left: 0; /* Adjust margin for smaller screens if needed */
+  }
+
+  .menu {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+}
