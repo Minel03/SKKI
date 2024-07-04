@@ -1,0 +1,245 @@
+<?php
+include 'connect.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['product'])) {
+    $product = $_GET['product'];
+
+    $sql = "SELECT building.name AS buildingname, room.name AS roomname, restocked_items.*, DATE_FORMAT(date, '%m/%d/%Y') AS formatted_date 
+    FROM restocked_items 
+    LEFT JOIN building ON restocked_items.building = building.id
+    LEFT JOIN room ON restocked_items.room = room.id
+    WHERE product_name = '$product'";
+
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $productName = $row["product_name"];
+        $Quantity = $row["quantity"];
+        $conditionNew = $row["condition_new"];
+        $conditionGood = $row["condition_good"];
+        $conditionBad = $row["condition_bad"];
+        $remarks = $row["remarks"];
+        $user = $row["user"];
+        $Date = $row["formatted_date"];
+        $building = $row["buildingname"];
+        $floor = $row["floor"];
+        $room = $row["roomname"];
+    } else {
+        echo "Item not found.";
+        $conn->close();
+        exit;
+    }
+
+    if ($building == 0) {
+        $buildingname = '-';
+    } else if ($building == 1) {
+        $buildingname = 'Office Building';
+    } else if ($building == 2) {
+        $buildingname = 'CRC Main Building';
+    }
+
+    if ($floor == 0) {
+        $floor = '-';
+    }
+
+    switch ($room) {
+        case 0:
+            $roomname = '-';
+            break;
+        case 1:
+            $roomname = 'Display Area';
+            break;
+        case 2:
+            $roomname = 'Program / Finance Room';
+            break;
+        case 3:
+            $roomname = 'Management / Library Room';
+            break;
+        case 4:
+            $roomname = 'Business Room';
+            break;
+        case 5:
+            $roomname = 'Stock Room';
+            break;
+        case 6:
+            $roomname = 'Day Care Center';
+            break;
+        case 7:
+            $roomname = 'Water Refilling Station';
+            break;
+        case 8:
+            $roomname = 'World Vision Room/Counseling Room';
+            break;
+        case 9:
+            $roomname = 'Mt. Zion';
+            break;
+        case 10:
+            $roomname = 'Stock Room';
+            break;
+        case 11:
+            $roomname = 'Finance Room';
+            break;
+        case 12:
+            $roomname = 'Rest Room 1';
+            break;
+        case 13:
+            $roomname = 'Rest Room 2';
+            break;
+        case 14:
+            $roomname = 'Conference Room';
+            break;
+        case 15:
+            $roomname = 'Rest Room';
+            break;
+        case 16:
+            $roomname = 'Isaiah';
+            break;
+        case 17:
+            $roomname = 'Linen';
+            break;
+        case 18:
+            $roomname = 'King Solomon';
+            break;
+        case 19:
+            $roomname = 'Kitchen';
+            break;
+        case 20:
+            $roomname = 'Dining';
+            break;
+        case 21:
+            $roomname = 'Rest Room 1';
+            break;
+        case 22:
+            $roomname = 'Rest Room 2';
+            break;
+        case 23:
+            $roomname = 'Mt. Olive';
+            break;
+        case 24:
+            $roomname = 'Mt. Carmel';
+            break;
+        case 25:
+            $roomname = 'Judea';
+            break;
+        case 26:
+            $roomname = 'Galilee';
+            break;
+        case 27:
+            $roomname = 'Gethsemane';
+            break;
+        case 28:
+            $roomname = 'Jericho';
+            break;
+        case 29:
+            $roomname = 'Rest Room 1';
+            break;
+        case 30:
+            $roomname = 'Rest Room 2';
+            break;
+        case 31:
+            $roomname = 'Esther';
+            break;
+        case 32:
+            $roomname = 'Ruth';
+            break;
+        case 33:
+            $roomname = 'Ezekiel';
+            break;
+        case 34:
+            $roomname = 'Jonnah';
+            break;
+        case 35:
+            $roomname = 'Micah';
+            break;
+        case 36:
+            $roomname = 'Samuel';
+            break;
+        case 37:
+            $roomname = 'Rest Room 1';
+            break;
+        case 38:
+            $roomname = 'Rest Room 2';
+            break;
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/inventory.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <link rel="icon" type="image/x-icon" href="images/logo1.ico">
+    <title>Restocked Item</title>
+
+    <?php
+    session_start();
+    $username = $_SESSION['username'];
+    if ($_SESSION['username']) {
+        if ($username == 'superadmin1' || $username == 'superadmin2') {
+            include 'header_superadmin.php';
+        } else if ($username == 'admin') {
+            include 'header_admin.php';
+        } else {
+            include 'header.php';
+        }
+    } else {
+        header("Location: index.php");
+    }
+    ?>
+</head>
+
+<body>
+    <h1 class="font dashboard">Restocked Items</h1>
+    <hr class="dashhr">
+    <h2 class="font edit"></h2>
+    <div class="form-container">
+        <form method="post" action="out_item_release.php?id=<?php echo urlencode($id); ?>">
+            <input type="hidden" name="id" value="<?php echo $iD; ?>">
+            <div class="input-container">
+                <label for="productname">Item Name:</label>
+                <input class="input" type="text" id="productname" name="productname" value="<?php echo $productName; ?>" readonly>
+                <br>
+                <label for="quantity">Quantity:</label>
+                <input class="input" type="text" id="quantity" name="quantity" value="<?php echo $Quantity; ?>" readonly>
+                <br>
+                <div class="input">
+                    <h5 class="condition-title">Condition</h5>
+                    <div class="center">
+                        <span>New: <input class="condition-container" type="text" id="conditionnew" name="conditionnew" value="<?php echo $conditionNew; ?>" readonly>
+                            <span>Good: <input class="condition-container" type="text" id="conditiongood" name="conditiongood" value="<?php echo $conditionGood; ?>" readonly>
+                                <span>Bad: </span><input class="condition-container" type="text" id="conditionbad" name="conditionbad" value="<?php echo $conditionBad; ?>" readonly>
+                    </div>
+                    <br>
+                    <h4 class="condition-title1">Building:</h4>
+                    <input class="input9" id="buildingname" value="<?php echo $building; ?>" readonly>
+                    <h4 class="condition-title1">Floor:</h4>
+                    <input class="input9" id="floor" name="floor" value="<?php echo $floor; ?>" readonly>
+                    <h4 class="condition-title1">Room:</h4>
+                    <input class="input9" id="roomname" value="<?php echo $room; ?>" readonly>
+                </div>
+                <br>
+                <label for="category">Remarks:</label>
+                <textarea class="inputremarks1" id="remarks" name="remarks" readonly><?php echo $remarks; ?></textarea>
+                <br>
+                <label for=" price">Released By:</label>
+                <input class="input" type="text" id="user" name="user" value="<?php echo $user; ?>" readonly>
+                <br>
+                <label for="unit">Date of Release:</label>
+                <input class="input" type="text" id="date" name="date" value="<?php echo $Date; ?>" readonly>
+                <br>
+        </form>
+        <div class="backpos">
+            <footer>
+                <a style="text-decoration:none" href="history.php" class="back">Back</a>
+            </footer>
+        </div>
+    </div>
+
+</body>
+
+</html>
